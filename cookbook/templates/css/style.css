@@ -22,3 +22,9 @@ body{
 .text-body-secondary {
     color: white!important;
 }
+.pagination {
+    margin-top: 5%;
+}
+.my-4 {
+    margin-bottom: 5%!important;
+}
