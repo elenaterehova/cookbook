@@ -4,7 +4,7 @@ from .models import (Recipe, RecipeIngredients, Product)
 admin.site.register(RecipeIngredients)
 
 
-class ProductVariantInline(admin.TabularInline):
+class RecipeIngredientInline(admin.TabularInline):
     model = RecipeIngredients
     readonly_fields = ('id',)
     extra = 0
@@ -12,9 +12,10 @@ class ProductVariantInline(admin.TabularInline):
 
 @admin.register(Recipe)
 class RecipeAdmin(admin.ModelAdmin):
-    inlines = [ProductVariantInline]
+    inlines = [RecipeIngredientInline]
 
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
     list_display = ('name', 'recipes_count')
+    readonly_fields = ('recipes_count',)

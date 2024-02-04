@@ -34,6 +34,7 @@ class RecipeIngredients(models.Model):
     class Meta:
         verbose_name = 'Ингредиент'
         verbose_name_plural = 'Ингредиенты'
+        unique_together = ('recipe', 'ingredient')
 
     def __str__(self):
         return self.ingredient.name
