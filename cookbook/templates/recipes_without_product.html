@@ -1,0 +1,29 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Рецепты без {{ product_name }}</title>
+      <link rel="stylesheet" href="{% static 'style.css' %}">
+  </head>
+  <body>
+    <table>
+        <thead>
+            <caption>Рецепты без {{ product_name }}:</caption>
+            <tr>
+                <th>id рецепта</th>
+                <th>Название рецепта</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for recipe in recipes %}
+                <tr>
+                    <td>{{ recipe.id }}</td>
+                    <td>{{ recipe.title }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+  </body>
+</html>
