@@ -28,8 +28,7 @@ class Recipe(models.Model):
 class RecipeIngredients(models.Model):
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, verbose_name="Рецепт")
     ingredient = models.ForeignKey(Product, on_delete=models.CASCADE, default="", verbose_name='Ингредиент')
-    amount = models.PositiveIntegerField(default=0, verbose_name='Количество')
-    unit_of_measure = models.CharField(default='г', max_length=10, verbose_name='Единица измерения')
+    weight = models.PositiveIntegerField(default=0, verbose_name='Количество (в граммах)')
 
     class Meta:
         verbose_name = 'Ингредиент'
@@ -38,4 +37,3 @@ class RecipeIngredients(models.Model):
 
     def __str__(self):
         return self.ingredient.name
-
