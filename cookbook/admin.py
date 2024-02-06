@@ -1,7 +1,10 @@
 from django.contrib import admin
 from .models import (Recipe, RecipeIngredients, Product)
 
-admin.site.register(RecipeIngredients)
+
+@admin.register(RecipeIngredients)
+class RecipeIngredientAdmin(admin.ModelAdmin):
+    list_display = ('ingredient', 'recipe')
 
 
 class RecipeIngredientInline(admin.TabularInline):
