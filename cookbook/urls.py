@@ -20,7 +20,6 @@ from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.post_list, name='post_list'),
     path('cook_recipe/<int:recipe_id>/', views.cook_recipe, name='cook_recipe'),
     path('add_product_to_recipe/<int:recipe_id>/<int:product_id>/<int:weight>', views.add_product_to_recipe,
          name='add_product_to_recipe'),

@@ -3,11 +3,6 @@ from django.shortcuts import render, get_object_or_404
 from .models import Recipe, RecipeIngredients, Product
 
 
-def post_list(request):
-    recipes = Recipe.objects.all()
-    return render(request, 'recipes_without_product.html', {'recipes': recipes})
-
-
 def add_product_to_recipe(request: HttpRequest, recipe_id, product_id, weight):
     recipe = Recipe.objects.get(id=recipe_id)
     product = Product.objects.get(id=product_id)
@@ -33,7 +28,7 @@ def cook_recipe(request: HttpRequest, recipe_id):
 def show_recipes_without_product(request: HttpRequest, product_id):
     product = Product.objects.get(id=product_id)
     recipes = Recipe.objects.exclude(ingredients=product_id, recipeingredients__weight__lte=10)
-    return render(request, 'recipes_without_product.html',        {
-            'recipes': recipes,
-            'product_name': product.name,
-        })
+    return render(request, 'recipes_without_product.html', {
+        'recipes': recipes,
+        'product_name': product.name,
+    })
